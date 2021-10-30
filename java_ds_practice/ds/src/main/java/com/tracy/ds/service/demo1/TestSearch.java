@@ -6,7 +6,7 @@ public class TestSearch {
         // 目标数组
         int[] arr = new int[]{2,3,5,6,7,8,4,9,0};
         // 目标元素
-        int target = 8;
+        int target = 112;
         // 目标元素的下标
         int index = -1;
         // 遍历数组
