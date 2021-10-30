@@ -81,10 +81,39 @@ public class MyArray {
     // 取出指定位置的元素
     public int get(int index) {
         //判断下标是否越界
+        // Exception in thread "main" java.lang.RuntimeException: 下标越界
         if (index < 0 || index > elements.length - 1) {
             throw new RuntimeException("下标越界");
         }
         return elements[index];
+    }
+
+    // 插入一个元素到指定位置
+    public void insert(int index, int element) {
+        if (index < 0 || index > elements.length - 1) {
+            throw new RuntimeException("下标越界");
+        }
+        // 创建一个新的数组
+        int[] newArr = new int[elements.length + 1];
+        // 插入位置之前的 直接复制，插入位置之后的，新数组中位置加1，新插入的元素放到index上
+        for (int i = 0; i < elements.length; i++) {
+            if (i < index) {
+                newArr[i] = elements[i];
+            } else {
+                newArr[i + 1] = elements[i];
+            }
+        }
+        newArr[index] = element;
+        // 新数组替换掉原数组
+        elements = newArr;
+    }
+
+    // 替换指定位置的元素
+    public void set(int index,int element){
+        if (index < 0 || index > elements.length - 1) {
+            throw new RuntimeException("下标越界");
+        }
+        elements[index] = element;
     }
 
 }
