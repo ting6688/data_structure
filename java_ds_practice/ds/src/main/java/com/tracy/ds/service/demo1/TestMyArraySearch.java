@@ -10,10 +10,10 @@ public class TestMyArraySearch {
         ma.add(4);
         ma.add(5);
         //调用线性查找方法
-        int index = ma.search(4);
+        int index = ma.search(9);
         System.out.println("index:"+index);
         //调用二分法查找
-        int index2 = ma.binarySearch(4);
+        int index2 = ma.binarySearch(9);
         System.out.println("index2:"+index2);
 
     }
