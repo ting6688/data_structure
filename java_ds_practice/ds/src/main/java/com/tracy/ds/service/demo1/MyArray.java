@@ -109,11 +109,67 @@ public class MyArray {
     }
 
     // 替换指定位置的元素
-    public void set(int index,int element){
+    public void set(int index, int element) {
         if (index < 0 || index > elements.length - 1) {
             throw new RuntimeException("下标越界");
         }
         elements[index] = element;
+    }
+
+    // 线性查找
+    public int search(int target) {
+        //遍历数组
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == target) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // 二分法查找
+    public int binarySearch(int target) {
+        // 二分法查找要求数组必须有序
+//        int[] arr = new int[]{2, 4, 5, 7, 9, 13, 17, 18};
+        // 目标元素
+//        int target = 10; // 查找一个不存在的值时会出现死循环 while(true) 改为 while(begin<end)
+
+        // 记录开始位置
+        int begin = 0;
+        // 记录结束位置
+        int end = elements.length - 1;
+        // 记录中间的位置
+        int mid = (begin + end) / 2;
+        // 记录目标位置
+        int index = -1;
+        // 循环查找
+//        while (begin < end) {
+        while (true) {
+            //什么情况下没有这个元素？ 开始在结束位置之后或重合，没有这个元素
+            if (begin >= end) {
+                return -1;
+            }
+            System.out.println("begin:" + begin + ",end:" + end + ",mid:" + mid);
+            // 判断中间的这个元素是不是要查找的元素
+            if (elements[mid] == target) {
+                index = mid;
+                return mid;
+                // 中间这个元素不是要查找的元素
+            } else {
+                // 判断中间这个元素是不是比目标的元素大
+                if (elements[mid] > target) {
+                    // 把结束位置调整到中间位置的前一个位置
+                    end = mid - 1;
+                } else {
+                    // 中间这个元素比目标元素小,把开始位置调整到中间位置的后一个位置
+                    begin = mid + 1;
+                }
+                mid = (begin + end) / 2;
+            }
+        }
+        // Unreachable statement
+//        return index;
+//        System.out.println("index:" + index);
     }
 
 }
