@@ -61,4 +61,53 @@ public class Node {
         return this.next;
     }
 
+
+    // 删除下一个节点 （为什么是下一个节点？ 因为是单链表，只有一个方向，只能找到下一个节点，不能往上找到上一个节点）
+    public void removeNext() {
+        // 找到被删除的节点的下一个节点 / 取出下下一个节点
+        Node newNextNode = this.next.next;
+        // 被删除节点的下一个节点作为被删除节点的上一个节点的下一个节点
+        this.next = newNextNode;
+    }
+
+    /**
+     * 展示节点内容
+     */
+    // 此方法缺少第一个节点的值
+    public void show_lack_first(){
+        Node currentNode = this;
+        while (currentNode.next!=null){
+            currentNode = currentNode.next;
+            System.out.print(currentNode.data +" ");
+        }
+        System.out.println("");
+    }
+
+    /**
+     * 显示所有节点信息
+     */
+    public void show(){
+        Node currentNode = this;
+        System.out.print(currentNode.data +" ");
+        while (currentNode.next!=null){
+            currentNode = currentNode.next;
+            System.out.print(currentNode.data +" ");
+        }
+        System.out.println("");
+    }
+
+    /**
+     * 显示所有节点信息
+     */
+    public void show_v1(){
+        Node currentNode = this;
+        while (currentNode.next!=null){
+            // 此种方法会丢掉最后一个节点
+            System.out.print(currentNode.data +" ");
+            currentNode = currentNode.next;
+//            System.out.print(currentNode.data +" ");
+        }
+        System.out.println("");
+    }
+
 }

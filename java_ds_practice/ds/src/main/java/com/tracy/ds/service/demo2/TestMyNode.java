@@ -24,11 +24,17 @@ public class TestMyNode {
 //        // 3
 //        System.out.println(node1.next.next.getData());
 
-        node1.append_ext(node2).append_ext(node3);
+        node1.append_ext(node2).append_ext(node3).append_ext(new Node(4));
 //        node2.append_ext(node3);
-        System.out.println(node1.next.getData());
+        //System.out.println(node1.next.getData());
         // 3
-        System.out.println(node1.next().next().getData());
+       // System.out.println(node1.next().next().getData());
+        // 1 2 3 4
+        node1.show();
+        node1.removeNext();
+        // 1 3 4
+        node1.show();
+
 
 
 
