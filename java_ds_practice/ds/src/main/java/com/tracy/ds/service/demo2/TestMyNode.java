@@ -28,7 +28,7 @@ public class TestMyNode {
 //        node2.append_ext(node3);
         System.out.println(node1.next.getData());
         // 3
-        System.out.println(node1.next.next.getData());
+        System.out.println(node1.next().next().getData());
 
 
 

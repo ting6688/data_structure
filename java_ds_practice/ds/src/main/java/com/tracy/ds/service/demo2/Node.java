@@ -41,7 +41,7 @@ public class Node {
     public Node append_ext(Node node) {
         // 当前节点
         Node currentNode = this;
-        System.out.println("currentNode:"+ currentNode.getData());
+        System.out.println("currentNode:" + currentNode.getData());
         // 寻找当前节点的下一节点，当不为空时，继续寻找，当为空时，将目标节点追加在其后面
         Node nextNode = currentNode.next;
         while (nextNode != null) {
@@ -50,15 +50,15 @@ public class Node {
             nextNode = currentNode.next;
         }
         currentNode.next = node;
-        System.out.println("nextNode:"+ currentNode.next.getData());
+        System.out.println("nextNode:" + currentNode.next.getData());
         return currentNode;
     }
 
     /**
      * 获取下一节点
      */
-//    public Node next(){
-//        return this.
-//    }
+    public Node next() {
+        return this.next;
+    }
 
 }
