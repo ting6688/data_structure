@@ -28,20 +28,23 @@ public class TestMyNode {
 //        node2.append_ext(node3);
         //System.out.println(node1.next.getData());
         // 3
-       // System.out.println(node1.next().next().getData());
+        // System.out.println(node1.next().next().getData());
         // 1 2 3 4
         node1.show();
-        node1.removeNext();
+//        node1.removeNext();
         // 1 3 4
+//        node1.show();
+
+
+        // 插入节点
+        Node node5 = new Node(5);
+        node1.next.after(node5);
+        // 1 2 5 3 4
         node1.show();
 
-
-
-
-
-
-
-
+//        node1.next.afterV1(node5);
+//        // 1 2 5 3 4
+//        node1.show();
 
 
     }

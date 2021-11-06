@@ -74,11 +74,11 @@ public class Node {
      * 展示节点内容
      */
     // 此方法缺少第一个节点的值
-    public void show_lack_first(){
+    public void show_lack_first() {
         Node currentNode = this;
-        while (currentNode.next!=null){
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
-            System.out.print(currentNode.data +" ");
+            System.out.print(currentNode.data + " ");
         }
         System.out.println("");
     }
@@ -86,12 +86,12 @@ public class Node {
     /**
      * 显示所有节点信息
      */
-    public void show(){
+    public void show() {
         Node currentNode = this;
-        System.out.print(currentNode.data +" ");
-        while (currentNode.next!=null){
+        System.out.print(currentNode.data + " ");
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
-            System.out.print(currentNode.data +" ");
+            System.out.print(currentNode.data + " ");
         }
         System.out.println("");
     }
@@ -99,15 +99,43 @@ public class Node {
     /**
      * 显示所有节点信息
      */
-    public void show_v1(){
+    public void show_v1() {
         Node currentNode = this;
-        while (currentNode.next!=null){
+        while (currentNode.next != null) {
             // 此种方法会丢掉最后一个节点
-            System.out.print(currentNode.data +" ");
+            System.out.print(currentNode.data + " ");
             currentNode = currentNode.next;
 //            System.out.print(currentNode.data +" ");
         }
         System.out.println("");
+    }
+
+    /**
+     * 插入节点 初步测试认为最后两步的顺序无关
+     *
+     * @param node
+     */
+    public void after(Node node) {
+        // 取出下下节点
+        Node nextNextNode = this.next;
+        // 将待插入的节点的下一个节点指向下下节点
+        node.next = nextNextNode;
+        // 将当前的节点的下一节点指向待插入节点
+        this.next = node;
+    }
+
+    /**
+     * 插入节点
+     *
+     * @param node
+     */
+    public void afterV1(Node node) {
+        // 取出下下节点
+        Node nextNextNode = this.next;
+        // 将当前的节点的下一节点指向待插入节点
+        this.next = node;
+        // 将待插入的节点的下一个节点指向下下节点
+        node.next = nextNextNode;
     }
 
 }
