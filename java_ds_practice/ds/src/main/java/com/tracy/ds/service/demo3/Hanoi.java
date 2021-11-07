@@ -43,7 +43,7 @@ public class Hanoi {
 
 
     /**
-     * 自己参照网上讲解实现
+     * 自己参照网上讲解实现 讲解很好的文章：https://www.zhihu.com/search?type=content&q=%E6%B1%89%E8%AF%BA%E5%A1%94
      * @param n
      * @param from
      * @param tmp
