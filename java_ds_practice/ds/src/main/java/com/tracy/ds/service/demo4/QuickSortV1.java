@@ -5,18 +5,18 @@ import java.util.Arrays;
 /**
  * 快速排序
  */
-public class QuickSort {
+public class QuickSortV1 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{23, 1, 34, 5, 9, 0, 3};
         System.out.println("排序之前：" + Arrays.toString(arr));
-        quickSort(arr,0,arr.length-1);
+        QuickSortV1(arr,0,arr.length-1);
         System.out.println("排序之后：" + Arrays.toString(arr));
 
     }
 
     // 快速排序 第一版 error:StackOverflowError
-    public static void quickSort(int[] arr, int start, int end) {
+    public static void QuickSortV1(int[] arr, int start, int end) {
         int stard = arr[start];
         int low = start;
         int high = end;
@@ -39,7 +39,7 @@ public class QuickSort {
         // low==high 已经找到了该元素的存放位置
         arr[low] = stard;
         //  stard左边的都小于stard ,右边的都大于stard, 左边的部分，和右边的部分分别重复此过程
-        quickSort(arr, start,low);
-        quickSort(arr,low+1,end);
+        QuickSortV1(arr, start,low);
+        QuickSortV1(arr,low+1,end);
     }
 }
