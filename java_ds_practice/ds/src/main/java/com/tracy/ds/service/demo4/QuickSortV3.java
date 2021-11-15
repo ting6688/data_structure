@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 /**
  * 快速排序
- * 双指针排序法，两指针停下时进行交换，两指针相遇时，进行左指针和基准数的交换
+ * 双指针排序法，两指针有一方停下时，即交换左右指针，两指针相遇时。左指针和基准数交换
  */
-public class QuickSortV2 {
+public class QuickSortV3 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{23, 1, 34, 5, 9, 0, 3};
         System.out.println("排序之前：" + Arrays.toString(arr));
-        QuickSortV3(arr, 0, arr.length - 1);
+        QuickSortV4(arr, 0, arr.length - 1);
         System.out.println("排序之后：" + Arrays.toString(arr));
 
     }
@@ -83,5 +83,40 @@ public class QuickSortV2 {
             QuickSortV3(arr, start, low);
             QuickSortV3(arr, low + 1, end);
         }
+    }
+
+
+    public static void QuickSortV4(int[] arr, int start, int end) {
+        int stard = arr[start];
+        int low = start;
+        int high = end;
+        if (start < end) {
+            // 需要排序时进行排序，当二者相等时，即只剩一个元素，无需排序
+            while (low < high) {
+                // 从右指针开始循环,从右边找到比基准数小的数，交换位置
+                while (low < high && stard <= arr[high]) {
+                    high--;
+                }
+                arr[low] = arr[high];
+                while (low < high && stard >= arr[low]) {
+                    // 从左指针寻找比基准数大的数，交换位置
+                    low++;
+                }
+                arr[high] = arr[low];
+            }
+            // low == high  左右指针重合，交换基准数和左指针位置上的元素
+            int tmp = 0;
+            tmp = stard;
+            stard = arr[low];
+            arr[low] = tmp;
+            //  重复此过程，每一个元素都找到正确的位置
+            QuickSortV4(arr, start, low - 1);
+            QuickSortV4(arr, low + 1, end);
+        }
+        // 栈溢出问题
+//        //  重复此过程，每一个元素都找到正确的位置
+//        QuickSortV4(arr, start, low - 1);
+//        QuickSortV4(arr, low + 1, end);
+
     }
 }
