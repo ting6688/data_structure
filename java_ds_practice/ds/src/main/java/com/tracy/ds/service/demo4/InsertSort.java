@@ -12,8 +12,10 @@ public class InsertSort {
     public static void main(String[] args) {
 
         int[] arr = new int[]{6, 1, 8, 0, 9, 2, 10,3,4};
+        int[] arr2 = new int[]{6};
+
         System.out.println("排序之前:" + Arrays.toString(arr));
-        insertSort(arr);
+        insertSort(arr2);
         System.out.println("排序之后:" + Arrays.toString(arr));
 
 
@@ -22,7 +24,7 @@ public class InsertSort {
 
     public static void insertSort(int[] arr) {
         // 循环每一个元素，找到自己的合适位置
-        if (arr.length > 1) {
+//        if (arr.length > 1) { //  这块不需要了，当length为1时，下面的for循环会直接退出
             // 大于1个元素才需要排序 // i<length-1 会漏掉最后一个元素
             for (int i = 1; i < arr.length; i++) {
                 int tmp =arr[i];
@@ -46,6 +48,6 @@ public class InsertSort {
                     }
                 }
             }
-        }
+//        }
 
 }
