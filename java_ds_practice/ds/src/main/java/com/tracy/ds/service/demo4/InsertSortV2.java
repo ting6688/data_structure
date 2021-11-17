@@ -40,7 +40,7 @@ public class InsertSortV2 {
      * @param arr
      */
 
-    //todo j的临界值需要考虑 J>=0 J>-1 ??
+    //todo J>=0 === J>-1
     public static void insertSortV3(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             // 将待排序数字和前面数字比较，当小于待排序数字时，不做任何操作；
