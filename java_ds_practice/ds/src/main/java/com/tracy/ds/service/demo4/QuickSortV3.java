@@ -87,6 +87,8 @@ public class QuickSortV3 {
 
 
     public static void QuickSortV4(int[] arr, int start, int end) {
+        //todo
+        System.out.println("start:"+start+",end:"+end);
         int stard = arr[start];
         int low = start;
         int high = end;
@@ -110,13 +112,14 @@ public class QuickSortV3 {
             stard = arr[low];
             arr[low] = tmp;
             //  重复此过程，每一个元素都找到正确的位置
-            QuickSortV4(arr, start, low - 1);
-            QuickSortV4(arr, low + 1, end);
+//            QuickSortV4(arr, start, low - 1);
+//            QuickSortV4(arr, low + 1, end);
         }
         // 栈溢出问题
 //        //  重复此过程，每一个元素都找到正确的位置
-//        QuickSortV4(arr, start, low - 1);
-//        QuickSortV4(arr, low + 1, end);
+        QuickSortV4(arr, start, low - 1);
+
+        QuickSortV4(arr, low + 1, end);
 
     }
 }
