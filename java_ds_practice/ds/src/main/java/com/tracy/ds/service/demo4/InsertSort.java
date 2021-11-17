@@ -41,9 +41,9 @@ public class InsertSort {
 //                if (i == 2) {
                 int tmp = arr[i];
                 int j = i - 1;
-                while (j >0) {
+                while (j >-1) {
                     // 遇到比前面数字小的数字，再往前挪，直到前面没有数字
-                    while (j>0 &&arr[j] > arr[i]) {
+                    while (j>0 && arr[j] > arr[i]) {
                         j--;
                     }
                     tmp = arr[i];
