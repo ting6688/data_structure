@@ -11,9 +11,9 @@ public class InsertSort {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{6,1,8,0,9,2,10};
-        insertSort(arr);
+        int[] arr = new int[]{6, 1, 8, 0, 9, 2, 10};
         System.out.println("排序之前:" + Arrays.toString(arr));
+        insertSort(arr);
         System.out.println("排序之后:" + Arrays.toString(arr));
 
 
@@ -25,32 +25,25 @@ public class InsertSort {
         if (arr.length > 1) {
             // 大于1个元素才需要排序
             for (int i = 1; i < arr.length - 1; i++) {
-                // 默认第一个有序，开始排第二个元素
-//                if (i == 1) {
-//                    if (arr[i] > arr[i - 1]) {
-//                        // 不动，继续排下一个
-//                    } else {
-//                        // arr[1] < arr[0] arr[0]会插入到arr[1]
-//                        int tmp = -1;
-//                        tmp = arr[i];
-//                        arr[i] = arr[i - 1];
-//                        arr[i - 1] = tmp;
-//                    }
-//                }
-//
-//                if (i == 2) {
-                int tmp = arr[i];
+                int tmp =arr[i];
                 int j = i - 1;
-                while (j >-1) {
-                    // 遇到比前面数字小的数字，再往前挪，直到前面没有数字
-                    while (j>0 && arr[j] > arr[i]) {
+                if (j > -1) {
+                    // 当后面的数字比前面数字大的时候，不动，开始下一个数字
+                    // 当后面的数字比前面数字小的时候，考虑后面的数字该放在哪，这时候需要往前移动，需要找一个合适的位置，不断往前移动，当找到比待排序的数字小的数字即停止，这个数字放在后面
+                    while (j > -1 && arr[j] > tmp) {
+                        arr[j + 1] = arr[j];
+                        // 当后面的数字比前面的数字小的时候，需要往前移动
                         j--;
+
                     }
-                    tmp = arr[i];
-                    arr[j + 1] = arr[j];
-                    // 如果遇到比待排序数字小的数字，则把待排序数字放在中间位置
-//                    arr[i] = arr[j + 1];
-                    arr[j] = tmp;
+                    // 当经历过j--之后，再去交换
+                    if (i > j + 1) {
+//                        if (j == -1) {
+//                            j = 0;
+//                        }
+                        arr[j+1] = tmp;
+                    }
+                    // 当后面的数字比前面的数字大的时候
                 }
             }
         }
